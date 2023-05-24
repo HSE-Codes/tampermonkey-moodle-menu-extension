@@ -35,6 +35,10 @@
         divCourseMenuHead.appendChild(h1CourseMenuHeadContent)
         divCourseMenu.appendChild(divCourseMenuHead)
 
+        let divCourseMenuList = document.createElement("div")
+        divCourseMenuList.style.overflow = "auto"
+        divCourseMenu.appendChild(divCourseMenuList)
+
         function appendCourses(jsonResponse) {
 
             for (const cours of jsonResponse.data.courses) {
@@ -60,7 +64,7 @@
 
                 divCourseLink.appendChild(divCourseContent)
 
-                divCourseMenu.appendChild(divCourse)
+                divCourseMenuList.appendChild(divCourse)
             }
         }
 
@@ -92,6 +96,7 @@
         let divPage = document.getElementById("page");
         let divPageWrapper = document.getElementById("page-wrapper");
         let divPageMenuContent = document.getElementById("theme_boost-drawers-courseindex");
+        let divPageOverlay = document.getElementById("format_tiles_overlay");
         if (divPageMenuContent) {
             divPageMenuContent.style.marginLeft = "calc(12% + 2px)"
         }
@@ -113,6 +118,8 @@
         divFlexRow.appendChild(divFlexItemContent)
 
         divPageWrapper.appendChild(divFlexRow)
+        
+        divPageOverlay.style.left = "12%"
     }
 
     init();
